@@ -1,8 +1,9 @@
-class expresserror extends Error{
-    constructor(statusCode,message){
+//ejs for error inbult
+class expresserror extends Error {
+    constructor(statusCode, message) {
         super();
-        this.statusCode=statusCode;
-        this.message=message;
+        this.statusCode = statusCode;
+        this.message = message;
     }
 }
-module.exports=expresserror;
+module.exports = expresserror;
