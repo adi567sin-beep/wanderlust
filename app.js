@@ -102,7 +102,19 @@ app.use((req, res, next) => {
   next(new expresserror(404, "Page Not Found!"));
 });
 
+// app.use((err, req, res, next) => {
+//   let { statusCode = 500, message = "Something went wrong!" } = err;
+//   res.status(statusCode).render("error.ejs", { message });
+// });
 app.use((err, req, res, next) => {
+  console.error("========== ORIGINAL ERROR ==========");
+  console.error(err);
+  console.error(err.stack);
+
+  if (res.headersSent) {
+    return next(err);
+  }
+
   let { statusCode = 500, message = "Something went wrong!" } = err;
   res.status(statusCode).render("error.ejs", { message });
 });

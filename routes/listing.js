@@ -9,6 +9,7 @@ const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 //index and create router
+console.log(listingController);
 router//in place of app router is written(express-router)
    .route("/")
    .get(wrapAsync(listingController.index))
